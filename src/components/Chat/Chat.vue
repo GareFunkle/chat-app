@@ -27,8 +27,7 @@
         </ul>
         <div class="message__send-wrap">
             <div class="send">
-                <input class="input__message" v-model="newMessage" @keyup.enter="sendMessage"
-                    placeholder="Type a message" />
+                <input class="input__message" v-model="newMessage" @keyup.enter="sendMessage" placeholder="Écrire..." />
                 <input type="file" id="file" style="display:none;" @change="sendImage" />
                 <label for="file">
                     <span class="material-icons file">
@@ -87,12 +86,6 @@ export default {
                 container.scrollTop = container.scrollHeight;
             });
         };
-
-
-
-
-
-
 
         watchEffect(async () => {
             const friend = props.friend;
@@ -158,7 +151,6 @@ export default {
                     if (permission === 'granted') {
                         new Notification('Nouveau message', { body: messageData.content });
 
-                        console.log("notification")
                     }
                 });
             }
@@ -224,6 +216,7 @@ export default {
                 }
             })
         }
+
 
 
         onMounted(() => {
@@ -303,8 +296,6 @@ export default {
                     margin-left: 10px;
                 }
             }
-
-
 
         }
     }
